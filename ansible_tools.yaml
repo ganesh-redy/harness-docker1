@@ -54,6 +54,8 @@
            -e MANAGER_HOST_AND_PORT=https://app.harness.io us-docker.pkg.dev/gar-prod-setup/harness-public/harness/delegate:25.04.85701
     - name: Check the docker running containers
       command: docker ps -a
+
+
       
 
 
