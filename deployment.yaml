@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: calculator-app
-        image: ganesh6498/harness-java-build-number:<+pipeline.executionId>
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 8085
         # env:
