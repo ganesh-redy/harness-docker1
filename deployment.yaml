@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: calculator-app
-        image: ganesh6498/java-harness:latest
+        image: ganesh6498/harness-java-build-number:<+pipeline.executionId>
         ports:
         - containerPort: 8085
         # env:
