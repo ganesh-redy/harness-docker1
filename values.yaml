@@ -1,0 +1,3 @@
+image:
+  repository: ganesh6498/harness-java-build-number
+  tag: latest  # This gets overridden by Harness with <+pipeline.sequenceId>
