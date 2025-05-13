@@ -1,14 +1,12 @@
-# Use official OpenJDK base image
-FROM openjdk:21-jdk-slim
-
-# Set the working directory
+# Stage 1: Build the app
+FROM maven:3.9.6-eclipse-temurin-21 as builder
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy the built jar file into the container
-COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose the application port
+# Stage 2: Create runtime image
+FROM openjdk:21-jdk-slim
+WORKDIR /app
+COPY --from=builder /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8085
-
-# Command to run the application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
